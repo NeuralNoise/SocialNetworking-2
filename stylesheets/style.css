@@ -1,0 +1,360 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: Tahoma;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f4f4f4;
+}
+
+#wrapper {
+	width: 99%;
+	margin: 5px auto;
+	background-color: #fff;
+	padding: 5px;
+}
+
+#header {
+	width: auto;
+	height: auto;
+	background-color: #18D;
+	color: #fff;
+	font-size: 30px;
+	font-family: Monospace;
+	padding: 20px;
+}
+
+#main-section {
+	display: flex;
+	display: -webkit-flex;
+}
+
+#login-form {
+	flex: 1;
+}
+
+#login-form #login-form-header {
+	text-align: center;
+	padding: 10px;
+	font-weight: bold;
+}
+
+#login-form table {
+	width: 50%;
+	margin: 10px auto;
+	border: 1px solid #a1a1a1;
+	padding: 30px;
+}
+
+#login-form table tr, #login-form table td {
+	padding: 5px;
+}
+
+#signup-form {
+	flex: 1;
+}
+
+#signup-form #signup-form-header {
+	text-align: center;
+	padding: 10px;
+	font-weight: bold;
+}
+
+#signup-form table {
+	width: 70%;
+	margin: 10px auto;
+	border: 1px solid #a1a1a1;
+	padding: 30px;
+}
+
+#signup-form table tr, #signup-form table td {
+	padding: 5px;
+}
+
+input {
+	padding: 3px;
+	font-size: 14px;
+	outline: none;
+}
+
+/*REGISTRATION PAGE ENDS*/
+
+/*HOMEPAGE DESIGN*/
+
+#navigation-bar ul {
+	background-color: #444;
+	list-style-type: none;
+	display: flex;
+	display: -webkit-flex;
+	height: auto;	
+}
+
+#navigation-bar ul li a {
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	padding: 10px;
+}
+
+#navigation-bar ul li:hover a {
+	background-color: #111;	
+}
+
+#profile-section {
+	display: flex;
+	display: -webkit-flex;
+}
+
+#profile-section #left-profile-section {
+	flex: 2;
+	border-right: 5px solid rgba(0,0,0,0.1);
+	padding-right: 10px;
+}
+
+#profile-section #left-profile-section #profile-image {
+	padding: 10px;
+	width: 100%;
+}
+
+#profile-section #left-profile-section #profile-image #profileimage {
+	display: none;
+}
+
+#profile-section #left-profile-section #profile-image #uploadimage label[for="profileimage"] {
+	font-size: 14px;
+	background: #27d;
+	color: #fff;
+	padding: 5px;
+	display: block;
+	font-weight: bold;
+	width: 70%;
+	float: left;
+	text-align: center;
+}
+
+#profile-section #left-profile-section #profile-image #uploadimage input[type="submit"] {
+	border: none;
+	outline: none;
+	background: #444;
+	color: #fff;
+	padding: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 14px;
+	width: 30%;
+	float: left;
+}
+
+#profile-section #left-profile-section #profile-image #requestuser input[type="submit"]:nth-child(1) {
+	width: 50%;
+	padding: 5px;
+	font-size: 12px;
+	float: left;
+	border: 1px solid #666;
+	cursor: pointer;
+	outline: none;
+	background: #e1e1e1;
+	margin: 5px 0px;
+}
+
+#profile-section #left-profile-section #profile-image #requestuser input[type="submit"]:nth-child(1):hover {
+	background: #f1f1f1;
+}
+
+#profile-section #left-profile-section #profile-image #requestuser input[type="submit"]:nth-child(2) {
+	width: 50%;
+	padding: 5px;
+	font-size: 12px;
+	float: left;
+	border: 1px solid #666;
+	cursor: pointer;
+	outline: none;
+	background: #e1e1e1;
+	margin: 5px 0px;
+}
+
+#profile-section #left-profile-section #profile-image #requestuser input[type="submit"]:nth-child(2):hover {
+	background: #f1f1f1;
+}
+
+#profile-section #left-profile-section #profile-image img {
+	width: 100%;
+	box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+}
+
+#profile-section #left-profile-section #user-bio {
+	padding: 10px;
+	font-size: 14px;
+	box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
+}
+
+#profile-section #left-profile-section #user-bio #user-bio-header {
+	text-align: center;
+	border-bottom: 1px solid #444;
+}
+
+#profile-section #left-profile-section #user-bio #user-bio-header span a {
+	text-decoration: none;
+	color: #666;
+	font-size: 11px;
+	padding: 3px;
+}
+
+#profile-section #left-profile-section #user-bio #user-bio-header span a:hover {
+	color: #000;
+}
+
+#profile-section #left-profile-section #user-bio #user-bio-description {
+	padding: 5px;
+	color: #333;
+	font-weight: bold;
+	clear: both;
+}
+
+#profile-section #left-profile-section #user-bio #user-bio-description textarea {
+	margin-top: 10px;
+	resize: none;
+	width: 100%;
+	height: 50px;
+	padding: 5px;
+	font-size: 12px;
+}
+
+#profile-section #left-profile-section #user-bio #user-bio-description input[type="submit"] {
+	border: none;
+	outline: none;
+	background: #444;
+	color: #fff;
+	padding: 5px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+#profile-section #right-profile-section {
+	flex: 10;
+	padding: 10px;
+}
+
+#profile-section #right-profile-section #usertimeline {}
+
+#profile-section #right-profile-section #usertimeline #timelineheader {
+	padding: 4px 4px 10px 4px;
+	border-bottom: 1px solid #e1e1e1;
+	margin-bottom: 10px;
+	font-weight: bold;
+	color: #333;
+}
+
+#profile-section #right-profile-section #usertimeline form textarea {
+	resize: none;
+	width: 100%;
+	padding: 5px;
+	height: 100px;
+}
+
+#profile-section #right-profile-section #usertimeline form input[type="submit"] {
+	float: right;
+	border: none;
+	outline: none;
+	background: #39f;
+	color: #fff;
+	padding: 5px;
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+#profile-section #right-profile-section #usertimeline form input[type="submit"]:hover {
+	background: #27d;
+}
+
+#profile-section #right-profile-section #usertimeline #timelinedisplay #timelinedisplayheader {
+	font-weight: bold;
+	border-bottom: 1px solid #e1e1e1;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px 0px;
+}
+
+#profile-section #right-profile-section #usertimeline #timelinedisplay #timelinedisplayarea {}
+
+#profile-section #right-profile-section #usertimeline #timelinedisplay #timelinedisplayarea .eachposts {
+	margin: 10px 0px;
+	width: 100%;
+	border-bottom: 1px solid #f1f1f1;
+}
+
+#profile-section #right-profile-section #usertimeline #timelinedisplay #timelinedisplayarea .eachposts .eachpostsimage {
+	width: 5%;
+	float: left;
+}
+
+#profile-section #right-profile-section #usertimeline #timelinedisplay #timelinedisplayarea .eachposts .eachpostdata {
+	width: 95%;
+	float: left;
+}
+
+#profile-section #right-profile-section #usertimeline #timelinedisplay #timelinedisplayarea .eachposts .eachpostdata .eachpostdatausername a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #16c;
+}
+
+#profile-section #right-profile-section #usertimeline #timelinedisplay #timelinedisplayarea .eachposts .eachpostdata .eachpostdatausername a:hover {
+	text-decoration: underline;
+}
+
+#profile-section #right-profile-section #usertimeline #timelinedisplay #timelinedisplayarea .eachposts .eachpostdata .eachpostdatausername div {
+	font-size: 10px;
+	color: #666;
+}
+
+#profile-section #right-profile-section #usertimeline #timelinedisplay #timelinedisplayarea .eachposts .eachpostdata .eachpostdataposts {
+	padding: 10px 0px;
+	color: #444;
+}
+
+.friend_request_link a {
+	color: #16c;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.friend_request_link a:hover {
+	text-decoration: underline;
+}
+
+.acceptRequestForm input[type="submit"] {
+	width: 10%;
+	padding: 5px;
+	font-size: 12px;
+	float: left;
+	border: 1px solid #666;
+	cursor: pointer;
+	outline: none;
+	background: #e1e1e1;
+	margin: 5px 0px;
+}
+
+.acceptRequestForm input[type="submit"]:hover {
+	background: #f1f1f1;
+}
+
+.deleteRequestForm input[type="submit"] {
+	width: 10%;
+	padding: 5px;
+	font-size: 12px;
+	float: left;
+	border: 1px solid #666;
+	cursor: pointer;
+	outline: none;
+	background: #e1e1e1;
+	margin: 5px 0px;
+	margin-left: 5px;
+}
+
+.deleteRequestForm input[type="submit"]:hover {
+	background: #f1f1f1;
+}
