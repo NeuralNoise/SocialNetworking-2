@@ -1,0 +1,216 @@
+<?php include 'includes/header.php'; ?>
+
+<?php 
+    if(isset($_GET['u'])) {
+    } else {
+        die('Unable to find the user!');
+    }
+?>
+
+<!--
+<?php 
+/*
+    if(isset($_POST['submitimage'])) {
+        $profileimage = $_FILES['profileimage']['name'];
+        if($profileimage == "") {
+            echo "Not Ok";
+        } else {
+            if(($_FILES['profileimage']['type'] == "image/jpeg") || ($_FILES['profileimage']['type'] == "image/png") || ($_FILES['profileimage']['type'] == "image/bmp")) {
+                if($_FILES['profileimage']['size'] < 3145728) {
+
+                    $folderName = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                    $dirName = substr(str_shuffle($folderName),0,15);
+
+                    mkdir("profile/images/$dirName");
+                    if(file_exists("profile/images/$dirName".$profileimage)) {
+                        echo "File Already Exits";
+                    } else {
+                        move_uploaded_file($_FILES['profileimage']['tmp_name'], "profile/images/$dirName/".$profileimage);
+                        
+                        $query = mysqli_query($con, "INSERT INTO profile_description (profile_image,userId) VALUES ('profile/images/$dirName/$profileimage','$userId')");
+
+                        if(!$query) {
+                            die("Sorry, Couldn't upload your profile photo");
+                        }
+                    }
+
+                } else {
+                    echo "very Large image";
+                }
+            }
+            else {
+                echo "Invalid Image";
+            }
+        }
+    }
+?>
+
+<?php 
+    if(isset($_POST['submitbio'])) {
+        $user_bio = $_POST['user_bio'];
+
+        if($user_bio != "") {
+            $sql = "UPDATE profile_description SET profile_bio='$user_bio' WHERE userId='$userId'";
+
+            $query = mysqli_query($con,$sql);
+
+            if(!$query) {
+                die('Couldn\'t update your bio!');
+            }
+
+        } else {
+            echo "Bio Empty!";
+        }
+    }
+    */
+?>
+      
+      -->      
+<div id="profile-section">
+	<div id="left-profile-section">
+    
+    	<div id="profile-image">
+
+            <?php 
+                $imageresult = mysqli_query($con,"SELECT * FROM profile_description WHERE userId = '$userId'");
+
+                if(mysqli_num_rows($imageresult) == 0) {
+                    ?>
+                        <img src="images/default.JPG" alt="<?php echo $firstname .  "'s Image"; ?>" title="<?php echo $firstname .  "'s Image"; ?>">
+                    <?php 
+                } else {
+                    while($row = mysqli_fetch_assoc($imageresult)) {
+                        $imagename = $row['profile_image'];
+                    }
+
+                     ?>
+                        <img src="<?php echo "$imagename"; ?>" alt="<?php echo $firstname .  "'s Image"; ?>" title="<?php echo $firstname .  "'s Image"; ?>">
+                    <?php 
+                }
+            ?>
+
+        	
+
+            <form action="profile.php" method="post" enctype="multipart/form-data">
+                <input id="profileimage" type="file" name="profileimage">
+                <label for="profileimage" title="Change your profile picture">Choose a File</label>
+                <input type="submit" name="submitimage" value="Change">
+                <div style="clear: both;"></div>
+            </form>
+        </div>
+        
+        <div id="user-bio">
+        
+        	<div id="user-bio-header">
+                <?php echo $firstname . "'s Bio"; ?>
+                
+                <span style="float: right;"><a href="profile.php?edit=bioedit">Edit</a></span>
+            </div>
+            
+            <div id="user-bio-description">
+                <?php 
+                    $result = mysqli_query($con,"SELECT profile_bio FROM profile_description WHERE userId='$userId'");
+
+                    while($row = mysqli_fetch_assoc($result)) {
+                        $biography = $row['profile_bio'];
+                    }
+
+                    if($biography == "") {
+                        echo "You can describe yourself by writing down something in here...";
+                    } else {
+                        echo $biography;
+                    }
+                ?>
+
+                <?php 
+
+                    if( isset($_GET['edit']) &&  $_GET['edit'] == "bioedit") {
+                        ?> 
+                        <form action="profile.php" method="post">
+                            <textarea name="user_bio" placeholder="Your Bio..."></textarea>
+                            <input type="submit" name="submitbio" value="Update">
+                            <div style="clear: both;"></div>
+                        </form>
+                        <?php 
+                    }
+
+                ?>
+            </div>
+        	
+        </div>
+    
+    </div>
+
+    <div id="right-profile-section">
+        
+        <div id="usertimeline">
+
+            <div id="timelineheader">Your TimeLine Below: </div>
+
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+                <textarea name="userpost" placeholder="Write something to post..."></textarea>
+                <input type="submit" name="submituserpost" value="POST">
+                <div style="clear: both;"></div>
+            </form>
+
+            <div id="timelinedisplay">
+
+                <div id="timelinedisplayheader">
+                    Your posts: 
+                </div>
+
+                <div id="timelinedisplayarea">
+                    <div class="eachposts">
+                        <div class="eachpostsimage">
+                            <img src="images/default.jpg" style="width: 50px;">
+                        </div>
+
+                        <div class="eachpostdata">
+                            <div class="eachpostdatausername">
+                                <a href="javascript: void(0);">Dipesh Rai</a>
+
+                                <div>
+                                    Likes: 0 | Comments: 0 <br>
+                                    Posted on: 2017-02-5
+                                </div>
+                            </div>
+
+                            <div class="eachpostdataposts">
+                                Hello, This is my first post on my own timeline!
+                            </div>
+                        </div>
+
+                        <div style="clear: both;"></div>
+                    </div>
+
+                    <div class="eachposts">
+                        <div class="eachpostsimage">
+                            <img src="images/default.jpg" style="width: 50px;">
+                        </div>
+
+                        <div class="eachpostdata">
+                            <div class="eachpostdatausername">
+                                <a href="javascript: void(0);">Dipesh Rai</a>
+
+                                <div>
+                                    Likes: 0 | Comments: 0 <br>
+                                    Posted on: 2017-02-5
+                                </div>
+                            </div>
+
+                            <div class="eachpostdataposts">
+                                And this is second post on my timeline...
+                            </div>
+                        </div>
+
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<?php include 'includes/footer.php'; ?> 
